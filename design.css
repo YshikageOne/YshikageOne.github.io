@@ -1,0 +1,288 @@
+/* resets default styles such as margin and padding, 
+sets a specific font family, and prevents scrolling on the HTML document. */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Piazzolla", serif;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* creates a centered layout with a background image that covers the entire page. 
+The content is both vertically and horizontally centered within the body, 
+and the body element itself has a minimum height of the viewport height. */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://imgur.com/t1zVNHW.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* styles an element as a centered panel. It utilizes flexbox properties to vertically 
+stack the child elements and horizontally center them. 
+The panel has a semi-transparent white background color, providing a subtle overlay effect. 
+It includes padding and rounded corners with a border radius for visual appeal. */
+.center-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* styles to the "center-panel" element when it has the "show" class. 
+It sets the opacity to 1 and transforms the element to translateY(0), making it visible and centered. */
+.center-panel.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* style a container for social icons and the individual anchor elements within it. 
+They use flexbox to horizontally center the icons and 
+apply a transition effect on hover to scale them up slightly.*/
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.social-icons a img {
+  width: 32px;
+  height: 32px;
+}
+
+/* adds a hover effect to display a label for contact icons. 
+It positions the label above the icon, sets its background color, 
+and transitions its opacity from 0 to 1 on hover.*/
+.contact-icon-label:hover::before {
+  content: attr(alt); /* Display the alt attribute as the label */
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.contact-icon-label:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+/*style a contact tab or button, with a transition effect on hover to scale it up slightly.*/
+.contact-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-tab:hover {
+  transform: scale(1.2);
+}
+
+.contact-tab .logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/*styles the contact panel container. It sets its position to fixed and centers it vertically
+ and horizontally using transform and translate properties. 
+It also specifies its dimensions, background color, padding, opacity, visibility, and border radius.*/
+.contact-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  z-index: 9999;
+  border-radius: 8px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.contact-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/*style a back button with a transition effect on hover to scale it up slightly. 
+The button is initially hidden with opacity set to 0 and positioned above its normal position using translateY.*/
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-10px); /* Move up to hide */
+}
+
+.back-button:hover {
+  transform: scale(1.2);
+}
+
+.back-button .logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.contact-panel.show .back-button {
+  opacity: 1; /* Show the back button */
+  transform: translateY(0); /* Move back button down */
+}
+
+.back-button button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.back-button img {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+.contact-panel.show .back-button img {  
+  display: block;
+  opacity: 1;
+}
+
+/*sets the initial opacity and transform properties for the contact content within the contact panel, 
+animating it to fade in and slide up when the panel is shown.*/
+.contact-content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.contact-panel.show .contact-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*style various elements related to a profile section and contact details.
+ They apply flexbox, set dimensions, margins, and other styles to achieve the desired layout.*/
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -100px;
+  border: 4px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.contact-label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.contact-content .back-button,
+.contact-content .contact-details {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.contact-panel.show .contact-content .back-button,
+.contact-panel.show .contact-content .contact-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Additional styles for transitions 
+define the starting and ending states for fading in and sliding up effects, respectively.*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
