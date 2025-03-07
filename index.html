@@ -2,16 +2,18 @@
 <html>
 <head>
    <meta charset="utf-8">
-   <title>What's Good!!!!</title> <!-- Title of the webpage -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Piazzolla&display=swap"> <!-- Importing a font from Google Fonts API -->
-   <link rel="icon" type="image/png" href="https://imgur.com/9x6DAs9.png"> <!-- Setting the favicon (shortcut icon) of the webpage -->
-   <link rel="stylesheet" type="text/css" href="design.css"> <!-- Importing an external CSS file -->
-   <script src="app.js"></script> <!-- Importing an external JavaScript file -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>YshikageOne's Bonfire</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@400;700&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+   <link rel="icon" type="image/png" href="https://imgur.com/ZA86zLu.png">
+   <link rel="stylesheet" type="text/css" href="design.css">
+   <script src="app.js"></script>
 </head>
 <body>
-  <audio id="background-audio" src="sounds/background.mp3" loop autoplay><!-- call in the audio to be used as a the background audio-->
-
-    <p> Bro, get a better browser man that can actually support audio </p><!-- error message if the browser doesn't support audio-->
+  <audio id="background-audio" src="sounds/background.mp3" loop autoplay>
+    <p>Bro, get a better browser man that can actually support audio</p>
   </audio>
 
   <!-- Different sound effects -->
@@ -19,32 +21,33 @@
   <audio id="choosesfx" src="sounds/choose.mp3"></audio>
   <audio id="backsfx" src="sounds/back.mp3"></audio>
   <audio id="windowopensfx" src="sounds/windowopen.mp3"></audio>
-  <audio id="windowclosefx" src="sounds/windowclose.mp3"></audio>
+  <audio id="windowclosesfx" src="sounds/windowclose.mp3"></audio>
 
-   <div class="center-panel"> <!-- A container div for the main content of the webpage -->
+  <section id="home-section">
+   <div class="center-panel">
       <div class="profile">
-         <img class="profile-picture" src="https://imgur.com/ET7Y1ht.jpg" alt="Profile Picture"> <!-- Displaying the profile picture with a specific URL -->
-         <h1 class="name">YshikageOne (Clyde Allen T. Yu)</h1> <!-- Displaying the name -->
+         <img class="profile-picture" src="https://imgur.com/ET7Y1ht.jpg" alt="Profile Picture">
+         <h1 class="name">YshikageOne (Clyde Allen T. Yu)</h1>
       </div>
       <div class="description">
-         <h2>About</h2> <!-- Heading for the description section -->
-         <p>Hello, I am Clyde. A Computer Science student. I play games.</p> <!-- Description text -->
+         <h2>About</h2>
+         <p>Greetings, Weary Traveler, I am Clyde. A Computer Science student. I play games.</p>
       </div>
       <div class="social-icons">
         <a href="https://www.facebook.com/clyde625" target="_blank">
-          <img src="assets/facebook.png" alt="Facebook" title="Facebook"> <!-- Facebook social media icon -->
+          <img src="assets/facebook.png" alt="Facebook" title="Facebook">
         </a>
         <a href="https://twitter.com/YshikageOne" target="_blank">
-          <img src="assets/twitter.png" alt="Twitter" title="Twitter"> <!-- Twitter social media icon -->
+          <img src="assets/twitter.png" alt="Twitter" title="Twitter">
         </a>
         <a href="https://github.com/YshikageOne" target="_blank">
-          <img src="assets/github.png" alt="GitHub" title="GitHub"> <!-- GitHub social media icon -->
+          <img src="assets/github.png" alt="GitHub" title="GitHub">
         </a>
         <a href="https://steamcommunity.com/id/localwaterenjoyer/" target="_blank">
-          <img src="assets/steam-logo.png" alt="Steam" title="Steam"> <!-- Steam social media icon -->
+          <img src="assets/steam-logo.png" alt="Steam" title="Steam">
         </a>
         <a href="https://discordapp.com/users/730615751819395082" target="_blank">
-          <img src="assets/discord.png" alt="Discord" title="Discord"> <!-- Discord social media icon -->
+          <img src="assets/discord.png" alt="Discord" title="Discord">
         </a>
       </div>
     
@@ -52,27 +55,373 @@
         <img class="logo" src="assets/notebook-of-contacts.png" alt="Logo">
         <span>Contact</span>
      </button>
-      <div class="contact-panel"> <!-- Container for the contact panel -->
-        <div class="contact-content"> <!-- Content of the contact panel -->
-          <div class="back-button">
-            <button id="close-button">
-              <img id="close-icon" src="assets/previous.png" alt="Close Icon"> <!-- Close icon image for the back button -->
-            </button>
+
+     <div class="contact-panel">
+      <div class="back-button">
+        <button id="close-button">
+          <img id="close-icon" src="assets/previous.png" alt="Close Icon">
+        </button>
+      </div>
+      <div class="contact-content">
+        <div class="contact-details">
+          <div class="contact-item">
+            <img class="contact-icon" src="assets/email.png" alt="Main Email Icon">
+            <p class="contact-label">Main Email:</p>
+            <p class="contact-value">clydeyu0725@gmail.com</p>
           </div>
-          <div class="contact-details"> <!-- Container for the contact details -->
-            <div class="contact-item">
-              <img class="contact-icon" src="assets/email.png" alt="Main Email Icon"> <!-- Main email icon image -->
-              <p class="contact-label">Main Email:</p> <!-- Label for the main email -->
-              <p class="contact-value">clydeyu0725@gmail.com</p> <!-- Main email value -->
-            </div>
-            <div class="contact-item">
-              <img class="contact-icon" src="assets/school.png" alt="School Email Icon"> <!-- School email icon image -->
-              <p class="contact-label">School Email:</p> <!-- Label for the school email -->
-              <p class="contact-value">caYu@mcm.edu.ph</p> <!-- School email value -->
-            </div>
+          <div class="contact-item">
+            <img class="contact-icon" src="assets/school.png" alt="School Email Icon">
+            <p class="contact-label">School Email:</p>
+            <p class="contact-value">caYu@mcm.edu.ph</p>
           </div>
         </div>
       </div>
+    </div>
       
+    <div class="corner-links">
+      <a href="#projects-section" class="corner-link projects-link" id="projects-button">Projects</a>
+      <a href="#certifications-section" class="corner-link certifications-link" id="certifications-button">Certifications</a>
+    </div>
+   </div>
+  </section>
+
+  <section id="projects-section" class="page-section">
+    <div class="container">
+      <div class="projects-section">
+        <!-- Projects Section Header -->
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <!-- p class="section-description">Here is some of the projects that I completed and the ones that I am still working on.</p>-->
+          <button class="view-all-btn" id="back-to-top">BACK TO TOP</button>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="featured-projects">
+          <div class="projects-grid">
+
+            <!-- Project Card 1 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/UoIFxz7.jpg" alt="Dog vs Cat Image Classifier">
+                <div class="project-status status-progress">Work in Progress</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Dog vs Cat Image Classifier</h3>
+                <p class="project-description">
+                  An image classification project using deep learning to distinguish between dogs and cats with high accuracy.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">TensorFlow</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">CNN</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/Q64cBmY.jpg" alt="Flappy Bird AI">
+                <div class="project-status status-progress">Work in Progress</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Flappy Bird AI</h3>
+                <p class="project-description">
+                  An artificial intelligence implementation that learns to play Flappy Bird through the NeuroEvolution of Augmenting Topologies (NEAT) algorithm, which evolves neural networks through genetic algorithms to improve gameplay performance over generations.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">NEAT Algorithm/CSS</span>
+                  <span class="tech-tag">Neural Networks</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/9iC5enj.jpg" alt="Raycasting (Wolfenstein 3D)">
+                <div class="project-status status-progress">Work in Progress</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Raycasting (Wolfenstein 3D)</h3>
+                <p class="project-description">
+                  A rendering technique that creates the illusion of 3D environments from a 2D map by casting rays from the player's viewpoint to calculate wall distances and heights, similar to the approach used in classic games like Wolfenstein 3D.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">C++</span>
+                  <span class="tech-tag">Computer Graphics</span>
+                  <span class="tech-tag">Game Development</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/Grq61fe.jpg" alt="Liminal Discord Bot">
+                <div class="project-status status-completed">COMPLETED</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Liminal Discord Bot</h3>
+                <p class="project-description">
+                  A multipurpose Discord bot with moderation, music streaming, and mini-games for server engagement.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Discord API</span>
+                  <span class="tech-tag">Reddit API</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/mqrFIlN.png" alt="Snake">
+                <div class="project-status status-completed">COMPLETED</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Snake</h3>
+                <p class="project-description">
+                  A classic arcade game implementation where players control a snake that grows longer as it consumes food while avoiding collisions with walls and itself.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">Game Development</span>
+                  <span class="tech-tag">GUI Programming</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://imgur.com/NvfUzuZ.png" alt="2048">
+                <div class="project-status status-completed">COMPLETED</div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">2048</h3>
+                <p class="project-description">
+                  A sliding tile puzzle game where players combine numbered tiles by moving them on a grid, with the goal of creating a tile with the number 2048 through strategic merging.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">Game Logic</span>
+                  <span class="tech-tag">User Interface Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-details-container">
+          <div class="project-details-header">
+            <h3 class="project-details-title">Project Progress</h3>
+            <p class="project-details-description">
+              Explore the projects that I'm currently working on and my upcoming projects
+            </p>
+          </div>
+          
+          
+          <iframe
+            src = "https://testificate.super.site"
+            class="notion-embed"
+            title="Detailed Project Information"
+            allowfullscreen
+            frameborder="0"
+          ></iframe>
+          
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+<section id="certifications-section" class="page-section">
+  <div class="container">
+    <div class="certifications-section">
+      <!-- Certifications Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Certifications</h2>
+        <!-- p class="section-description">A collection of my professional certifications and educational achievements in various tech domains.</p> -->
+        <button class="view-all-btn" id="back-to-top-cert">BACK TO TOP</button>
+      </div>
+
+      <!-- Certifications Grid -->
+      <div class="certifications-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Advanced Algorithms and Complexity</h3>
+              <span class="certificate-issuer">University of California San Diego</span>
+            </div>
+            <div class="certificate-year">2024</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/TFJ3AHGLT2VS" class="certificate-link" target="_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Beginning Custom Projects with Raspberry Pi</h3>
+              <span class="certificate-issuer">Johns Hopkins University</span>
+            </div>
+            <div class="certificate-year">2024</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/UC7T88T8UPJP" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Introduction to Java</h3>
+              <span class="certificate-issuer">LearnQuest</span>
+            </div>
+            <div class="certificate-year">2023</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/JDKPXRFJ8TAV" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 4 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Programming for Everybody</h3>
+              <span class="certificate-issuer">University of Michigan</span>
+            </div>
+            <div class="certificate-year">2023</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/45FXBZLYLUYL" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 5 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Deep Learning Agile Software Development: Refactoring</h3>
+              <span class="certificate-issuer">Linkedin Learning</span>
+            </div>
+            <div class="certificate-year">2025</div>
+            <div class="certificate-actions">
+              <a href="https://www.linkedin.com/learning/certificates/a6e5ef730c931847183c4fb0a86e8027f7b9f368533e3072b5d68a6ec336b86f?u=89213594" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 6 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Start the UX Design Process</h3>
+              <span class="certificate-issuer">Google</span>
+            </div>
+            <div class="certificate-year">2024</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/3AK8HB5U46V9" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 7 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Understanding the Impact of a Merger for IT Teamss</h3>
+              <span class="certificate-issuer">Linkedin Learning</span>
+            </div>
+            <div class="certificate-year">2025</div>
+            <div class="certificate-actions">
+              <a href="https://www.linkedin.com/learning/certificates/ec5a7f17e7f133a53b33dcab82f192bc775d293e10086545a6ccadd280cedc09?u=89213594" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 8 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">What is Data Science?</h3>
+              <span class="certificate-issuer">IBM</span>
+            </div>
+            <div class="certificate-year">2024</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/7IRGEEW6AUHB" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 9 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Agile Software Development: Clean Coding Practices</h3>
+              <span class="certificate-issuer">Linkedin Learning</span>
+            </div>
+            <div class="certificate-year">2025</div>
+            <div class="certificate-actions">
+              <a href="https://www.linkedin.com/learning/certificates/14cfacc12eada63a9b784762affc3f38cd0f3b8653a40d46f51234c609c19d12?u=89213594" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 10 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Data Structures</h3>
+              <span class="certificate-issuer">University of California San Diego</span>
+            </div>
+            <div class="certificate-year">2023</div>
+            <div class="certificate-actions">
+              <a href="https://www.coursera.org/account/accomplishments/verify/8CWFYNB98NLX" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 11 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Introduction to Network Routing</h3>
+              <span class="certificate-issuer">Linkedin Learning</span>
+            </div>
+            <div class="certificate-year">2022</div>
+            <div class="certificate-actions">
+              <a href="https://www.linkedin.com/learning/certificates/429bd6622549922cc1d50144b384695cf5872fc95d7cfc7bf8836f099f887ef1?u=89213594" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 12 -->
+        <div class="certificate-card">
+          <div class="certificate-content">
+            <div class="certificate-header">
+              <h3 class="certificate-title">Networking Foundations: Local Area Networks (LANs)</h3>
+              <span class="certificate-issuer">Linkedin Learning</span>
+            </div>
+            <div class="certificate-year">2022</div>
+            <div class="certificate-actions">
+              <a href="https://www.linkedin.com/learning/certificates/44f7d5ea89824bf686db4ac6e196862f872bf1be8b514386915daee61311cf8c?u=89213594" class="certificate-link" target = "_blank">View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 </body>
 </html>
