@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const contactPanel = document.querySelector(".contact-panel");
   const closeButton = document.querySelector("#close-button");
   const contactButton = document.querySelector("#contact-button");
+  const projectButton = document.getElementById("projects-button");
+  const certificationsButton = document.getElementById("certifications-button");
+  const backToTopButton = document.getElementById("back-to-top");
+  const projectsSection = document.getElementById("projects-section");
+  const certificationsSection = document.getElementById("certifications-section");
+  const backToTopCertButton = document.getElementById("back-to-top-cert");
+
   const backgroundAudio = document.querySelector("#background-audio");
   const click = document.getElementById("clicksfx");
   const choose = document.getElementById("choosesfx");
@@ -12,8 +19,16 @@ document.addEventListener("DOMContentLoaded", function() {
   const windowopen = document.getElementById("windowopensfx");
   const windowclose = document.getElementById("windowclosesfx");
 
-  // Lower the volume of the background audio
-  backgroundAudio.volume = 0.5; // Set the volume to 0.5 (50% volume)
+  let keysPressed = "";
+  const secretCode = "jerra";
+
+  //Lower the volume of the background audio
+  backgroundAudio.volume = 0.2;
+  click.volume = 0.15;
+  choose.volume = 0.15;
+  back.volume = 0.15;
+  windowopen.volume = 0.15;
+  windowclose.volume = 0.15;
 
   // Set initial styles for the center panel
   centerPanel.style.opacity = "0";
@@ -30,18 +45,31 @@ document.addEventListener("DOMContentLoaded", function() {
   // Flag to track the state of the contact panel
   let contactPanelOpen = false;
 
-  // Function to toggle the contact panel
-function toggleContactPanel() {
-  if (contactPanelOpen) {
-    // Contact panel is already open, do nothing
-    return;
+  // Set initial state for projects section and certification section
+  if (projectsSection) {
+    projectsSection.style.opacity = "0";
+    projectsSection.style.transform = "translateY(50px)";
+    projectsSection.style.transition = "opacity 0.8s ease, transform 0.8s ease";
   }
 
-  centerPanel.classList.remove("show"); // Hide the center panel
-  contactPanel.classList.add("show"); // Show the contact panel
-  contactPanelOpen = true; // Update the state of the contact panel
-  contactButton.style.pointerEvents = "none"; // Disable click on contact button
-}
+  if (certificationsSection) {
+    certificationsSection.style.opacity = "0";
+    certificationsSection.style.transform = "translateY(50px)";
+    certificationsSection.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+  }
+
+  // Function to toggle the contact panel
+  function toggleContactPanel() {
+    if (contactPanelOpen) {
+      // Contact panel is already open, do nothing
+      return;
+    }
+
+    centerPanel.classList.remove("show"); // Hide the center panel
+    contactPanel.classList.add("show"); // Show the contact panel
+    contactPanelOpen = true; // Update the state of the contact panel
+    contactButton.style.pointerEvents = "none"; // Disable click on contact button
+  }
 
   // Handle click event on the contact tab
   contactTab.addEventListener("click", toggleContactPanel);
@@ -68,90 +96,372 @@ function toggleContactPanel() {
   });
   
   // Continuous checking of the contact panel state
-setInterval(function() {
-  if (contactPanelOpen) {
-    if (contactPanel.style.visibility === "hidden") {
-      // Animate the contact panel to slide up and show
-      contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      contactPanel.style.opacity = "1";
-      contactPanel.style.transform = "translateY(0)";
-      contactPanel.style.visibility = "visible";
-    }
-  } else {
-    if (contactPanel.style.visibility === "visible") {
-      // Animate the contact panel to slide down and hide
-      contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      contactPanel.style.opacity = "0";
-      contactPanel.style.transform = "translateY(100%)";
-
-      // After the animation completes, reset the styles of the contact panel
-      setTimeout(function() {
-        contactPanel.style.visibility = "hidden";
+  setInterval(function() {
+    if (contactPanelOpen) {
+      if (contactPanel.style.visibility === "hidden") {
+        // Animate the contact panel to slide up and show
+        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
         contactPanel.style.opacity = "1";
         contactPanel.style.transform = "translateY(0)";
-      }, 500);
+        contactPanel.style.visibility = "visible";
+      }
+    } else {
+      if (contactPanel.style.visibility === "visible") {
+        // Animate the contact panel to slide down and hide
+        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        contactPanel.style.opacity = "0";
+        contactPanel.style.transform = "translateY(100%)";
+
+        // After the animation completes, reset the styles of the contact panel
+        setTimeout(function() {
+          contactPanel.style.visibility = "hidden";
+          contactPanel.style.opacity = "1";
+          contactPanel.style.transform = "translateY(0)";
+        }, 500);
+      }
+    }
+  }, 100);
+
+  // Handle scrolling animation for projects section
+  function checkProjectsVisibility() {
+    if (!projectsSection) return;
+    
+    const rect = projectsSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // If projects section is in viewport
+    if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
+      // Only animate if it hasn't played yet or was reset
+      if (projectsSection.style.opacity === "0" || projectsSection.style.transform === "translateY(50px)") {
+        projectsSection.style.opacity = "1";
+        projectsSection.style.transform = "translateY(0)";
+        
+        // Reset project cards animation
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.style.animation = 'none';
+          card.offsetHeight; // Trigger reflow
+          card.style.animation = ''; // Remove the animation style to let CSS take over
+        });
+        
+        // Reset section title and button animations
+        const sectionTitle = projectsSection.querySelector('.section-title');
+        const viewAllBtn = projectsSection.querySelector('.view-all-btn');
+        
+        if (sectionTitle) {
+          sectionTitle.style.animation = 'none';
+          sectionTitle.offsetHeight; // Trigger reflow
+          sectionTitle.style.animation = '';
+        }
+        
+        if (viewAllBtn) {
+          viewAllBtn.style.animation = 'none';
+          viewAllBtn.offsetHeight; // Trigger reflow
+          viewAllBtn.style.animation = '';
+        }
+        
+        // Mark that we've played the animation
+        projectsAnimationPlayed = true;
+      }
+    } else if (rect.top > windowHeight) {
+      // Only reset when scrolling up and the section is completely below viewport
+      projectsSection.style.opacity = "0";
+      projectsSection.style.transform = "translateY(50px)";
     }
   }
-}, 100);
 
- // Handle user interaction to play the background audio
- document.addEventListener("click", function() {
-  backgroundAudio.play().catch(function(error) {
-    console.log(error);
+  function checkCertificatesVisibility() {
+    if (!certificationsSection) return;
+    
+    const rect = certificationsSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // If certificates section is in viewport
+    if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
+      // Only animate if it hasn't played yet or was reset
+      if (certificationsSection.style.opacity === "0" || certificationsSection.style.transform === "translateY(50px)") {
+        certificationsSection.style.opacity = "1";
+        certificationsSection.style.transform = "translateY(0)";
+        
+        // Reset certificate cards animation
+        document.querySelectorAll('.certificate-card').forEach(card => {
+          card.style.animation = 'none';
+          card.offsetHeight; // Trigger reflow
+          card.style.animation = ''; // Remove the animation style to let CSS take over
+        });
+        
+        // Reset section title and button animations
+        const sectionTitle = certificationsSection.querySelector('.section-title');
+        
+        if (sectionTitle) {
+          sectionTitle.style.animation = 'none';
+          sectionTitle.offsetHeight; // Trigger reflow
+          sectionTitle.style.animation = '';
+        }
+      }
+    } else if (rect.top > windowHeight) {
+      // Only reset when scrolling up and the section is completely below viewport
+      certificationsSection.style.opacity = "0";
+      certificationsSection.style.transform = "translateY(50px)";
+    }
+  }
+  
+  // Check visibility on scroll
+  window.addEventListener("scroll", checkProjectsVisibility);
+  window.addEventListener("scroll", checkCertificatesVisibility);
+  
+  // Initial check for visibility
+  checkProjectsVisibility();
+  checkCertificatesVisibility();
+
+  // Handle user interaction to play the background audio
+  document.addEventListener("click", function() {
+    backgroundAudio.play().catch(function(error) {
+      console.log(error);
+    });
   });
-});
 
-// Function that plays the sound effects 
-function playClick(){
-  click.currentTime = 0;
-  click.play();
-}
-function playChoose(){
-  choose.currentTime = 0;
-  choose.play();
-}
-function playBack(){
-  back.currentTime = 0;
-  back.play();
-}
-function playWinOpen(){
-  windowopen.currentTime = 0;
-  windowopen.play();
-}
-function playWinClose(){
-  windowclose.currentTime = 0;
-  windowclose.play();
-}
+  // Function that plays the sound effects 
+  function playClick(){
+    click.currentTime = 0;
+    click.play();
+  }
+  function playChoose(){
+    choose.currentTime = 0;
+    choose.play();
+  }
+  function playBack(){
+    back.currentTime = 0;
+    back.play();
+  }
+  function playWinOpen(){
+    windowopen.currentTime = 0;
+    windowopen.play();
+  }
+  function playWinClose(){
+    windowclose.currentTime = 0;
+    windowclose.play();
+  }
 
-// Add click event listeners to clickable elements
+  // Add click event listeners to clickable elements
 
-// Click event for icons and buttons (except the back button)
-document.querySelectorAll(".social-icons img, #contact-button").forEach(function(element) {
-  element.addEventListener("click", function() {
-    playClick();
+  // Click event for icons and buttons (except the back button)
+  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button").forEach(function(element) {
+    element.addEventListener("click", function() {
+      playClick();
+    });
   });
-});
 
-// Hover event for icons and buttons (except the back button)
-document.querySelectorAll(".social-icons img, #contact-button").forEach(function(element) {
-  element.addEventListener("mouseover", function() {
-    playChoose();
+  // Hover event for icons and buttons (except the back button)
+  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, back-to-top").forEach(function(element) {
+    element.addEventListener("mouseover", function() {
+      playChoose();
+    });
   });
-});
 
-// Click event for the back button
-document.querySelector("#close-button").addEventListener("click", function() {
-  playBack();
-});
+  if (backToTopButton) {
+    backToTopButton.addEventListener("mouseover", function() {
+      playChoose();
+    });
+  }
 
-// Click event for opening the contact details panel
-document.querySelector(".contact-tab").addEventListener("click", function() {
-  playWindowOpen();
-});
+  // Add sound effects to project cards
+  document.querySelectorAll(".project-card").forEach(function(card) {
+    // Flag to track if hover sound has been played
+    let hoverSoundPlayed = false;
+    
+    card.addEventListener("mouseenter", function() {
+      if (!hoverSoundPlayed) {
+        playChoose();
+        hoverSoundPlayed = true;
+      }
+    });
+    
+    card.addEventListener("mouseleave", function() {
+      // Reset the flag when mouse leaves the card
+      hoverSoundPlayed = false;
+    });
+  });
 
-// Click event for closing the contact details panel
-document.querySelector("#close-button").addEventListener("click", function() {
-  playWindowClose();
-});
+  document.querySelectorAll(".certificate-card").forEach(function(card) {
+    // Flag to track if hover sound has been played
+    let hoverSoundPlayed = false;
+    
+    card.addEventListener("mouseenter", function() {
+      if (!hoverSoundPlayed) {
+        playChoose();
+        hoverSoundPlayed = true;
+      }
+    });
+    
+    card.addEventListener("mouseleave", function() {
+      // Reset the flag when mouse leaves the card
+      hoverSoundPlayed = false;
+    });
+  });
 
+  document.querySelectorAll(".certificate-link").forEach(function(link) {
+    link.addEventListener("click", function() {
+      playClick();
+    });
+    
+    // Also add hover sound effect
+    link.addEventListener("mouseover", function() {
+      playChoose();
+    });
+  });
+
+  // Click event for the back button
+  document.querySelector("#close-button").addEventListener("click", function() {
+    playBack();
+  });
+
+  // Click event for opening the contact details panel
+  document.querySelector(".contact-tab").addEventListener("click", function() {
+    playWinOpen();
+  });
+
+  // Click event for closing the contact details panel
+  document.querySelector("#close-button").addEventListener("click", function() {
+    playWinClose();
+  });
+
+  // Smooth scroll to projects section when projects button is clicked with animation
+  projectButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    // Prepare the animation for projects section
+    if (projectsSection) {
+      projectsSection.style.opacity = "0";
+      projectsSection.style.transform = "translateY(50px)";
+    }
+    
+    // Smooth scroll to the projects section
+    projectsSection.scrollIntoView({ behavior: "smooth" });
+    
+    // Animate in the projects section after a short delay
+    setTimeout(function() {
+      if (projectsSection) {
+        projectsSection.style.opacity = "1";
+        projectsSection.style.transform = "translateY(0)";
+      }
+    }, 300);
+  });
+
+  if (certificationsButton) {
+    certificationsButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      
+      // Prepare the animation for certifications section
+      if (certificationsSection) {
+        certificationsSection.style.opacity = "0";
+        certificationsSection.style.transform = "translateY(50px)";
+      }
+      
+      // Smooth scroll to the certifications section
+      certificationsSection.scrollIntoView({ behavior: "smooth" });
+      
+      // Animate in the certifications section after a short delay
+      setTimeout(function() {
+        if (certificationsSection) {
+          certificationsSection.style.opacity = "1";
+          certificationsSection.style.transform = "translateY(0)";
+        }
+      }, 300);
+      
+      // Play sound effect
+      playClick();
+    });
+  }
+
+  // Back to top button functionality
+  if (backToTopButton) {
+    backToTopButton.addEventListener("click", function() {
+      playClick(); // Play click sound effect
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  if (backToTopCertButton) {
+    backToTopCertButton.addEventListener("click", function() {
+      playClick(); // Play click sound effect
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+    
+    // Add hover sound effect
+    backToTopCertButton.addEventListener("mouseover", function() {
+      playChoose();
+    });
+  }
+
+  const certObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)'; 
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (certificationsSection) {
+    certObserver.observe(certificationsSection);
+  }
+
+  const popup = document.createElement('div');
+  popup.className = 'secret-popup';
+  popup.innerHTML = `
+    <div class="secret-popup-content">
+      <div class="secret-popup-header">
+        <h3>Secret Message Unlocked!</h3>
+        <button id="close-secret-popup">×</button>
+      </div>
+      <div class="secret-popup-body">
+        <p>Hi Honhon, It seems that you've figure out the hidden secret>,< shhh ayaw saba ahh</p>
+        <p>I love you so so muchhh jud Jerra Lovesss <3 - clydeclyde</p>
+        <p>btw click sa image for a reward pa>,< </p>
+        <a href="https://www.youtube.com/shorts/Per81qMAHPg" target="_blank" class="secret-image-link">
+          <img src="https://imgur.com/InZq519.jpg" alt="Secret Image">
+        </a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  
+  // Add functionality to close button
+  document.getElementById('close-secret-popup').addEventListener('click', function() {
+    popup.classList.remove('show');
+    // Play window close sound
+    const closeSound = document.getElementById('windowclosesfx');
+    if (closeSound) closeSound.play();
+  });
+  
+  // Listen for keypress events
+  document.addEventListener('keypress', function(event) {
+    // Add the latest key to our string
+    keysPressed += event.key.toLowerCase();
+    
+    // Only keep the last 5 characters to avoid storage issues
+    if (keysPressed.length > secretCode.length) {
+      keysPressed = keysPressed.slice(-secretCode.length);
+    }
+    
+    // Check if the secret code was typed
+    if (keysPressed === secretCode) {
+      // Show the popup
+      popup.classList.add('show');
+      
+      // Play window open sound
+      const openSound = document.getElementById('windowopensfx');
+      if (openSound) openSound.play();
+      
+      // Reset the keys pressed
+      keysPressed = "";
+    }
+  });
+  
 });
