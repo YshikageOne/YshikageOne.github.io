@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const windowopen = document.getElementById("windowopensfx");
   const windowclose = document.getElementById("windowclosesfx");
 
-  let keysPressed = "";
-  const secretCode = "jerra";
-
   //Lower the volume of the background audio
   backgroundAudio.volume = 0.2;
   click.volume = 0.15;
@@ -411,57 +408,5 @@ document.addEventListener("DOMContentLoaded", function() {
   if (certificationsSection) {
     certObserver.observe(certificationsSection);
   }
-
-  const popup = document.createElement('div');
-  popup.className = 'secret-popup';
-  popup.innerHTML = `
-    <div class="secret-popup-content">
-      <div class="secret-popup-header">
-        <h3>Secret Message Unlocked!</h3>
-        <button id="close-secret-popup">×</button>
-      </div>
-      <div class="secret-popup-body">
-        <p>Hi Honhon, It seems that you've figure out the hidden secret>,< shhh ayaw saba ahh</p>
-        <p>I love you so so muchhh jud Jerra Lovesss <3 - clydeclyde</p>
-        <p>btw click sa image for a reward pa>,< </p>
-        <a href="https://www.youtube.com/shorts/Per81qMAHPg" target="_blank" class="secret-image-link">
-          <img src="https://imgur.com/InZq519.jpg" alt="Secret Image">
-        </a>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(popup);
-  
-  // Add functionality to close button
-  document.getElementById('close-secret-popup').addEventListener('click', function() {
-    popup.classList.remove('show');
-    // Play window close sound
-    const closeSound = document.getElementById('windowclosesfx');
-    if (closeSound) closeSound.play();
-  });
-  
-  // Listen for keypress events
-  document.addEventListener('keypress', function(event) {
-    // Add the latest key to our string
-    keysPressed += event.key.toLowerCase();
-    
-    // Only keep the last 5 characters to avoid storage issues
-    if (keysPressed.length > secretCode.length) {
-      keysPressed = keysPressed.slice(-secretCode.length);
-    }
-    
-    // Check if the secret code was typed
-    if (keysPressed === secretCode) {
-      // Show the popup
-      popup.classList.add('show');
-      
-      // Play window open sound
-      const openSound = document.getElementById('windowopensfx');
-      if (openSound) openSound.play();
-      
-      // Reset the keys pressed
-      keysPressed = "";
-    }
-  });
   
 });
