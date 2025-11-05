@@ -7,9 +7,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const contactButton = document.querySelector("#contact-button");
   const projectButton = document.getElementById("projects-button");
   const certificationsButton = document.getElementById("certifications-button");
+  const skillsButton = document.getElementById("skills-button");
+  const academicButton = document.getElementById("academic-button");
   const backToTopButton = document.getElementById("back-to-top");
   const projectsSection = document.getElementById("projects-section");
   const certificationsSection = document.getElementById("certifications-section");
+  const skillsSection = document.getElementById("skills-section");
+  const academicSection = document.getElementById("academic-section");
   const backToTopCertButton = document.getElementById("back-to-top-cert");
 
   const backgroundAudio = document.querySelector("#background-audio");
@@ -242,14 +246,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // Add click event listeners to clickable elements
 
   // Click event for icons and buttons (except the back button)
-  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button").forEach(function(element) {
+  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, #skills-button, #academic-button").forEach(function(element) {
     element.addEventListener("click", function() {
       playClick();
     });
   });
 
   // Hover event for icons and buttons (except the back button)
-  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, back-to-top").forEach(function(element) {
+  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, #skills-button, #academic-button, back-to-top").forEach(function(element) {
     element.addEventListener("mouseover", function() {
       playChoose();
     });
@@ -370,6 +374,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // Smooth scroll to skills section when skills button is clicked
+  if (skillsButton) {
+    skillsButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      skillsSection.scrollIntoView({ behavior: "smooth" });
+      playClick();
+    });
+  }
+
+  // Smooth scroll to academic section when academic button is clicked
+  if (academicButton) {
+    academicButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      academicSection.scrollIntoView({ behavior: "smooth" });
+      playClick();
+    });
+  }
+
   // Back to top button functionality
   if (backToTopButton) {
     backToTopButton.addEventListener("click", function() {
@@ -407,6 +429,54 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (certificationsSection) {
     certObserver.observe(certificationsSection);
+  }
+
+  // Project card click functionality
+  const wipModal = document.getElementById('wip-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  
+  // Handle project card clicks
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      const status = card.getAttribute('data-status');
+      const githubUrl = card.getAttribute('data-github');
+      
+      if (status === 'completed' && githubUrl) {
+        // Play click sound and redirect to GitHub
+        playClick();
+        window.open(githubUrl, '_blank');
+      } else if (status === 'progress') {
+        // Show work in progress modal
+        playWinOpen();
+        wipModal.style.display = 'flex'; // Reset display property
+        wipModal.classList.add('show');
+      }
+    });
+  });
+  
+  // Close modal when close button is clicked
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      playWinClose();
+      wipModal.classList.remove('show');
+      setTimeout(function() {
+        wipModal.style.display = '';
+      }, 500);
+    });
+  }
+  
+  // Close modal when clicking outside the modal content
+  if (wipModal) {
+    wipModal.addEventListener('click', function(e) {
+      if (e.target === wipModal) {
+        playWinClose();
+        wipModal.classList.remove('show');
+        setTimeout(function() {
+          wipModal.style.display = '';
+        }, 500);
+      }
+    });
   }
   
 });

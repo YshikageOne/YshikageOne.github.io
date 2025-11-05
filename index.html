@@ -23,15 +23,28 @@
   <audio id="windowopensfx" src="sounds/windowopen.mp3"></audio>
   <audio id="windowclosesfx" src="sounds/windowclose.mp3"></audio>
 
+  <!-- Modal for Work in Progress Projects -->
+  <div id="wip-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn">
+        <img src="assets/previous.png" alt="Close">
+      </button>
+      <div class="modal-body">
+        <h3 class="modal-title">Work in Progress</h3>
+        <p class="modal-message">Ah... Tarnished, the work is yet unfinished. This endeavor remains but a flickering ember, its form still taking shape. Forgive my sluggish hands — for even the smallest creation may demand an age to forge.</p>
+      </div>
+    </div>
+  </div>
+
   <section id="home-section">
    <div class="center-panel">
       <div class="profile">
-         <img class="profile-picture" src="https://imgur.com/ET7Y1ht.jpg" alt="Profile Picture">
+         <img class="profile-picture" src="https://imgur.com/NqKpna8.jpg" alt="Profile Picture">
          <h1 class="name">YshikageOne (Clyde Allen T. Yu)</h1>
       </div>
       <div class="description">
          <h2>About</h2>
-         <p>Greetings, Weary Traveler, I am Clyde. A Computer Science student. I play games.</p>
+         <p>Greetings, Weary Tarnished, I am Clyde, a Computer Science undergraduate with hands-on experience in machine learning, app and web development, and a background in game development and cybersecurity. I also enjoy playing games and constantly seek to learn new tools and deepen my technical expertise across different areas.</p>
       </div>
       <div class="social-icons">
         <a href="https://www.facebook.com/clyde625" target="_blank">
@@ -79,10 +92,230 @@
     </div>
       
     <div class="corner-links">
+      <a href="#skills-section" class="corner-link" id="skills-button">Skills</a>
+      <a href="#academic-section" class="corner-link" id="academic-button">Education</a>
       <a href="#projects-section" class="corner-link projects-link" id="projects-button">Projects</a>
       <a href="#certifications-section" class="corner-link certifications-link" id="certifications-button">Certifications</a>
     </div>
    </div>
+  </section>
+
+  <!-- Skills & Technologies Section -->
+  <section id="skills-section" class="page-section">
+    <div class="container">
+      <div class="skills-section">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">Technical skills and tools I work with</p>
+        
+        <!-- Programming Languages -->
+        <div class="skills-category">
+          <h3 class="skills-category-title">
+            <span class="category-emoji">⚔️</span>
+            Programming Languages
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+              <span>Python</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+              <span>Java</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+              <span>C#</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+              <span>HTML5</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+              <span>CSS3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Libraries -->
+        <div class="skills-category">
+          <h3 class="skills-category-title">
+            <span class="category-emoji">🛡️</span>
+            Frameworks & Libraries
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+              <span>TensorFlow</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+              <span>React</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+              <span>Node.js</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind">
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="skills-category">
+          <h3 class="skills-category-title">
+            <span class="category-emoji">📜</span>
+            Tools & Platforms
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+              <span>Git</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter: brightness(0) invert(1);">
+              <span>GitHub</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+              <span>VS Code</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+              <span>Unity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specializations -->
+        <div class="skills-category">
+          <h3 class="skills-category-title">
+            <span class="category-emoji">✨</span>
+            Areas of Expertise
+          </h3>
+          <div class="specializations-grid">
+            <div class="specialization-item">
+              <div class="spec-icon">🤖</div>
+              <h4>Machine Learning</h4>
+              <p>Neural Networks, Deep Learning, AI Implementation</p>
+            </div>
+            <div class="specialization-item">
+              <div class="spec-icon">🌐</div>
+              <h4>Web Development</h4>
+              <p>Full-Stack Development, Responsive Design, Modern Frameworks</p>
+            </div>
+            <div class="specialization-item">
+              <div class="spec-icon">🔒</div>
+              <h4>Cybersecurity</h4>
+              <p>Vulnerability Scanning, Cryptography, Blockchain</p>
+            </div>
+            <div class="specialization-item">
+              <div class="spec-icon">🎮</div>
+              <h4>Game Development</h4>
+              <p>Unity, Game AI, Interactive Experiences</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Journey Section -->
+  <section id="academic-section" class="page-section">
+    <div class="container">
+      <div class="academic-section">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">My academic background and achievements</p>
+        
+        <div class="academic-content">
+          <div class="academic-main">
+            <div class="academic-image">
+              <img src="https://imgur.com/ZA86zLu.png" alt="MMCM Logo">
+            </div>
+            <div class="academic-details">
+              <h3 class="academic-degree">Bachelor of Science in Computer Science</h3>
+              <h4 class="academic-institution">Mapúa Malayan Colleges Mindanao</h4>
+              <p class="academic-years">2022 - Present</p>
+              <p class="academic-description">
+                Currently pursuing my degree at Mapúa Malayan Colleges Mindanao, where I've gained comprehensive knowledge in Computer Science fundamentals, including algorithms, data structures, artificial intelligence, and software engineering.
+              </p>
+              <p class="academic-description">
+                My academic journey has provided me with both theoretical foundations and practical experience through various coursework and projects, preparing me for real-world applications in technology and software development.
+              </p>
+            </div>
+          </div>
+
+          <!-- Academic Works Section -->
+          <div class="academic-works">
+            <h3 class="academic-works-title">Academic Works</h3>
+            <div class="academic-works-grid">
+              
+              <!-- Academic Paper 1 -->
+              <div class="academic-paper-card">
+                <div class="paper-image">
+                  <img src="https://imgur.com/Uz5tD9C.png" alt="Webchk Paper">
+                </div>
+                <div class="paper-content">
+                  <h4 class="paper-title">Webchk: an Ensemble Learning Approach for Web Vulnerability Detection Integrating TCN, BERT, and FP-Growth in a Vulnerability Scanner</h4>
+                  <p class="paper-description">
+                    Developed an AI-driven web vulnerability scanner combining BERT, Temporal Convolutional Networks, and FP-Growth to improve detection accuracy and reduce false positives. Trained on multiple cybersecurity datasets, the ensemble model achieved a 4.02% gain over baseline performance, demonstrating enhanced generalization and adaptability beyond traditional rule-based scanners.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Academic Paper 2 -->
+              <div class="academic-paper-card">
+                <div class="paper-image">
+                  <img src="https://imgur.com/f5ryUA6.png" alt="MOBA Research">
+                </div>
+                <div class="paper-content">
+                  <h4 class="paper-title">A M.O.B.A Game and The Winning Conditions</h4>
+                  <p class="paper-description">Analyzed over 10,000 League of Legends matches to identify key predictors of victory within the first 15 minutes of gameplay. Using Logistic Regression, Random Forest, and Gradient Boosting models, the study found that early gold accumulation and objective control (dragons, void monsters) are the strongest indicators of match success, with Random Forest achieving the best predictive accuracy at 76.2%.Academic research analyzing winning conditions and game mechanics in Multiplayer Online Battle Arena games.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Academic Paper 3 -->
+              <div class="academic-paper-card">
+                <div class="paper-image">
+                  <img src="https://imgur.com/nTdL0tz.png" alt="Laundry System">
+                </div>
+                <div class="paper-content">
+                  <h4 class="paper-title">A Secure and Automated Laundry Management System Developed with Flask</h4>
+                  <p class="paper-description">
+                    Designed and implemented a secure, full-stack Laundry Management System using Flask, SQLite, and a web-based interface. Integrated JWT authentication and PBKDF2-SHA256 password hashing to ensure data protection. The system automates laundry operations—order tracking, dynamic pricing, and record management—demonstrating strong reliability, scalability, and user data integrity.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Academic Paper 4 -->
+              <div class="academic-paper-card">
+                <div class="paper-image">
+                  <img src="https://imgur.com/fnn6l4J.png" alt="BizTracks">
+                </div>
+                <div class="paper-content">
+                  <h4 class="paper-title">BizTracks: Small Business Analytics Dashboard and Money Tracker</h4>
+                  <p class="paper-description">
+                    Created a mobile-first financial dashboard using React and Firebase to simplify income, expense, and customer management for small businesses. Focused on usability and real-time visualization across key modules—Dashboard, Customer List, and Settings. Functional testing confirmed its effectiveness as a lightweight, accessible financial tool for micro-entrepreneurs and freelancers.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects-section" class="page-section">
@@ -100,15 +333,16 @@
           <div class="projects-grid">
 
             <!-- Project Card 1 -->
-            <div class="project-card">
+            <div class="project-card" data-status="progress">
               <div class="project-image">
                 <img src="https://imgur.com/UoIFxz7.jpg" alt="Dog vs Cat Image Classifier">
                 <div class="project-status status-progress">Work in Progress</div>
               </div>
               <div class="project-content">
                 <h3 class="project-title">Dog vs Cat Image Classifier</h3>
+                <p class="project-role">Machine Learning Engineer • 2024 - Present</p>
                 <p class="project-description">
-                  An image classification project using deep learning to distinguish between dogs and cats with high accuracy.
+                  An image classification project using deep learning to distinguish between dogs and cats with high accuracy. Implementing convolutional neural networks to achieve robust classification performance.
                 </p>
                 <div class="project-tech">
                   <span class="tech-tag">TensorFlow</span>
@@ -119,53 +353,56 @@
             </div>
 
             <!-- Project Card 2 -->
-            <div class="project-card">
+            <div class="project-card" data-status="progress">
               <div class="project-image">
                 <img src="https://imgur.com/Q64cBmY.jpg" alt="Flappy Bird AI">
                 <div class="project-status status-progress">Work in Progress</div>
               </div>
               <div class="project-content">
                 <h3 class="project-title">Flappy Bird AI</h3>
+                <p class="project-role">AI Developer • 2024 - Present</p>
                 <p class="project-description">
                   An artificial intelligence implementation that learns to play Flappy Bird through the NeuroEvolution of Augmenting Topologies (NEAT) algorithm, which evolves neural networks through genetic algorithms to improve gameplay performance over generations.
                 </p>
                 <div class="project-tech">
                   <span class="tech-tag">Python</span>
-                  <span class="tech-tag">NEAT Algorithm/CSS</span>
+                  <span class="tech-tag">NEAT Algorithm</span>
                   <span class="tech-tag">Neural Networks</span>
                 </div>
               </div>
             </div>
 
             <!-- Project Card 3 -->
-            <div class="project-card">
+            <div class="project-card" data-status="completed" data-github="https://github.com/YshikageOne">
               <div class="project-image">
-                <img src="https://imgur.com/9iC5enj.jpg" alt="Raycasting (Wolfenstein 3D)">
-                <div class="project-status status-progress">Work in Progress</div>
+                <img src="https://imgur.com/lwjcoN4.jpg" alt="AI-Enhanced Web Vulnerability Scanner">
+                <div class="project-status status-completed">COMPLETED</div>
               </div>
               <div class="project-content">
-                <h3 class="project-title">Raycasting (Wolfenstein 3D)</h3>
+                <h3 class="project-title">AI-Enhanced Web Vulnerability Scanner</h3>
+                <p class="project-role">Lead Developer & Researcher • 2024</p>
                 <p class="project-description">
-                  A rendering technique that creates the illusion of 3D environments from a 2D map by casting rays from the player's viewpoint to calculate wall distances and heights, similar to the approach used in classic games like Wolfenstein 3D.
+                  A web-application vulnerability scanner that ensembles FP-Growth, BERT, and TCN models to deliver comprehensive, ML-driven security assessments, featuring a TypeScript frontend with Tailwind CSS.
                 </p>
                 <div class="project-tech">
-                  <span class="tech-tag">C++</span>
-                  <span class="tech-tag">Computer Graphics</span>
-                  <span class="tech-tag">Game Development</span>
+                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Cybersecurity</span>
                 </div>
               </div>
             </div>
 
             <!-- Project Card 4 -->
-            <div class="project-card">
+            <div class="project-card" data-status="completed" data-github="https://github.com/YshikageOne/LiminalBot">
               <div class="project-image">
                 <img src="https://imgur.com/Grq61fe.jpg" alt="Liminal Discord Bot">
                 <div class="project-status status-completed">COMPLETED</div>
               </div>
               <div class="project-content">
                 <h3 class="project-title">Liminal Discord Bot</h3>
+                <p class="project-role">Bot Developer • 2023</p>
                 <p class="project-description">
-                  A Discord bot that uploads daily liminal space images from r/LiminalSpace.
+                  A Discord bot that uploads daily liminal space images from r/LiminalSpace, bringing eerie aesthetics to Discord servers through automated content curation.
                 </p>
                 <div class="project-tech">
                   <span class="tech-tag">Python</span>
@@ -176,15 +413,16 @@
             </div>
 
             <!-- Project Card 5 -->
-            <div class="project-card">
+            <div class="project-card" data-status="completed" data-github="https://github.com/YshikageOne/Java-GameProjects/tree/main/Snake">
               <div class="project-image">
                 <img src="https://imgur.com/mqrFIlN.png" alt="Snake">
                 <div class="project-status status-completed">COMPLETED</div>
               </div>
               <div class="project-content">
                 <h3 class="project-title">Snake</h3>
+                <p class="project-role">Game Developer • 2023</p>
                 <p class="project-description">
-                  A classic arcade game implementation where players control a snake that grows longer as it consumes food while avoiding collisions with walls and itself.
+                  A classic arcade game implementation where players control a snake that grows longer as it consumes food while avoiding collisions with walls and itself. Built with Java Swing for GUI.
                 </p>
                 <div class="project-tech">
                   <span class="tech-tag">Java</span>
@@ -195,20 +433,21 @@
             </div>
 
             <!-- Project Card 6 -->
-            <div class="project-card">
+            <div class="project-card" data-status="completed" data-github="https://github.com/YshikageOne/Blockchain-Identity-Verification-System">
               <div class="project-image">
-                <img src="https://imgur.com/NvfUzuZ.png" alt="2048">
+                <img src="https://imgur.com/nF0xLMW.jpg" alt="Blockchain Verification System">
                 <div class="project-status status-completed">COMPLETED</div>
               </div>
               <div class="project-content">
-                <h3 class="project-title">2048</h3>
+                <h3 class="project-title">Blockchain Identity Verification System</h3>
+                <p class="project-role">Blockchain Developer • 2023</p>
                 <p class="project-description">
-                  A sliding tile puzzle game where players combine numbered tiles by moving them on a grid, with the goal of creating a tile with the number 2048 through strategic merging.
+                  A Python-based application that uses blockchain blocks and RSA cryptography to securely store and verify identity records, featuring a GUI explorer for viewing chain integrity.
                 </p>
                 <div class="project-tech">
-                  <span class="tech-tag">Java</span>
-                  <span class="tech-tag">Game Logic</span>
-                  <span class="tech-tag">User Interface Design</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Blockchain</span>
+                  <span class="tech-tag">Cryptography</span>
                 </div>
               </div>
             </div>
