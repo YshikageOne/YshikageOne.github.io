@@ -1433,3 +1433,411 @@ body {
     font-size: 1rem;
   }
 }
+
+/* Small Mobile Devices (395px and below) */
+@media screen and (max-width: 450px) {
+  /* Home Section Adjustments */
+  .center-panel {
+    max-width: 95%;
+    padding: 12px 12px;
+    padding-top: 8px;
+    padding-bottom: 52px;
+    max-height: none;
+  }
+  
+  .profile {
+    margin-bottom: 10px;
+  }
+  
+  .profile-picture {
+    width: 90px;
+    height: 90px;
+    margin-top: -45px;
+  }
+  
+  .name {
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .description {
+    margin-bottom: 6px;
+  }
+  
+  .description h2 {
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-top: 3px;
+  }
+  
+  .description p {
+    font-size: 11px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  
+  .social-icons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .social-icons a {
+    margin: 0 6px;
+  }
+  
+  .contact-tab {
+    padding: 5px 9px;
+    margin: 5px 0 3px 0;
+    font-size: 10px;
+    letter-spacing: 0.1px;
+  }
+  
+  .contact-tab .logo {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+  
+  .corner-links {
+    bottom: 12px;
+    gap: 2px;
+    padding: 0 12px;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+  }
+  
+  .corner-link {
+    padding: 4px 2px;
+    font-size: 6.5px;
+    min-width: unset;
+    flex: unset;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0px;
+  }
+  
+  /* Contact Panel Adjustments */
+  .contact-panel {
+    max-width: 95%;
+    padding: 20px 15px;
+  }
+  
+  .back-button {
+    top: 10px;
+    left: 10px;
+  }
+  
+  .back-button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-label {
+    font-size: 13px;
+  }
+  
+  .contact-value {
+    font-size: 13px;
+    word-break: break-word;
+  }
+  
+  .contact-item {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .contact-details {
+    width: 100%;
+  }
+  
+  /* Section Title Adjustments */
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+  
+  .section-description {
+    font-size: 0.95rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .view-all-btn {
+    align-self: flex-start;
+  }
+  
+  /* Container Adjustments */
+  .container {
+    padding: 15px;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .project-content {
+    padding: 15px;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .project-role {
+    font-size: 0.8rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+  
+  .project-details-container {
+    margin-top: 40px;
+    padding: 20px 15px;
+  }
+  
+  .project-details-title {
+    font-size: 1.4rem;
+  }
+  
+  .project-details-description {
+    font-size: 0.9rem;
+  }
+  
+  .notion-embed {
+    height: 500px;
+  }
+  
+  /* Skills Section */
+  .skills-category {
+    padding: 20px 15px;
+    margin-bottom: 40px;
+  }
+  
+  .skills-category-title {
+    font-size: 1.4rem;
+    gap: 10px;
+  }
+  
+  .category-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 15px;
+  }
+  
+  .skill-item {
+    padding: 15px 10px;
+  }
+  
+  .skill-item img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .skill-item span {
+    font-size: 0.8rem;
+  }
+  
+  .specializations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .specialization-item {
+    padding: 20px;
+  }
+  
+  .spec-icon {
+    font-size: 2rem;
+  }
+  
+  .specialization-item h4 {
+    font-size: 1.1rem;
+  }
+  
+  .specialization-item p {
+    font-size: 0.85rem;
+  }
+  
+  /* Academic Section */
+  .academic-main {
+    flex-direction: column;
+    padding: 20px 15px;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .academic-image img {
+    width: 120px;
+    height: 120px;
+    padding: 15px;
+  }
+  
+  .academic-degree {
+    font-size: 1.4rem;
+  }
+  
+  .academic-institution {
+    font-size: 1rem;
+  }
+  
+  .academic-years {
+    font-size: 0.95rem;
+  }
+  
+  .academic-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .academic-works {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+  
+  .academic-works-title {
+    font-size: 1.4rem;
+  }
+  
+  .academic-works-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .paper-image {
+    height: 150px;
+  }
+  
+  .paper-content {
+    padding: 15px;
+  }
+  
+  .paper-title {
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .paper-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* Certifications Section */
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .certificate-content {
+    padding: 20px 15px;
+  }
+  
+  .certificate-title {
+    font-size: 1rem;
+    max-width: 65%;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .certificate-issuer {
+    font-size: 0.9rem;
+  }
+  
+  .certificate-year {
+    top: 20px;
+    right: 15px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .certificate-link {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Modal Adjustments */
+  .modal-content {
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+  
+  .modal-close {
+    top: 10px;
+    left: 10px;
+  }
+  
+  .modal-close img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+  
+  .modal-message {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Button Adjustments */
+  .view-all-btn {
+    padding: 6px 15px;
+    font-size: 0.85rem;
+  }
+  
+  /* Section Padding */
+  .page-section {
+    padding: 40px 0;
+  }
+  
+  #skills-section,
+  #academic-section {
+    padding: 50px 0;
+  }
+}

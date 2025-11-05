@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const certificationsButton = document.getElementById("certifications-button");
   const skillsButton = document.getElementById("skills-button");
   const academicButton = document.getElementById("academic-button");
-  const backToTopButton = document.getElementById("back-to-top");
   const projectsSection = document.getElementById("projects-section");
   const certificationsSection = document.getElementById("certifications-section");
   const skillsSection = document.getElementById("skills-section");
@@ -57,6 +56,19 @@ document.addEventListener("DOMContentLoaded", function() {
     certificationsSection.style.opacity = "0";
     certificationsSection.style.transform = "translateY(50px)";
     certificationsSection.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+  }
+
+  // Set initial state for skills and academic sections
+  if (skillsSection) {
+    skillsSection.style.opacity = "0";
+    skillsSection.style.transform = "translateY(50px)";
+    skillsSection.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+  }
+
+  if (academicSection) {
+    academicSection.style.opacity = "0";
+    academicSection.style.transform = "translateY(50px)";
+    academicSection.style.transition = "opacity 0.8s ease, transform 0.8s ease";
   }
 
   // Function to toggle the contact panel
@@ -205,14 +217,58 @@ document.addEventListener("DOMContentLoaded", function() {
       certificationsSection.style.transform = "translateY(50px)";
     }
   }
+
+  function checkSkillsVisibility() {
+    if (!skillsSection) return;
+    
+    const rect = skillsSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // If skills section is in viewport
+    if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
+      // Only animate if it hasn't played yet or was reset
+      if (skillsSection.style.opacity === "0" || skillsSection.style.transform === "translateY(50px)") {
+        skillsSection.style.opacity = "1";
+        skillsSection.style.transform = "translateY(0)";
+      }
+    } else if (rect.top > windowHeight) {
+      // Only reset when scrolling up and the section is completely below viewport
+      skillsSection.style.opacity = "0";
+      skillsSection.style.transform = "translateY(50px)";
+    }
+  }
+
+  function checkAcademicVisibility() {
+    if (!academicSection) return;
+    
+    const rect = academicSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // If academic section is in viewport
+    if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
+      // Only animate if it hasn't played yet or was reset
+      if (academicSection.style.opacity === "0" || academicSection.style.transform === "translateY(50px)") {
+        academicSection.style.opacity = "1";
+        academicSection.style.transform = "translateY(0)";
+      }
+    } else if (rect.top > windowHeight) {
+      // Only reset when scrolling up and the section is completely below viewport
+      academicSection.style.opacity = "0";
+      academicSection.style.transform = "translateY(50px)";
+    }
+  }
   
   // Check visibility on scroll
   window.addEventListener("scroll", checkProjectsVisibility);
   window.addEventListener("scroll", checkCertificatesVisibility);
+  window.addEventListener("scroll", checkSkillsVisibility);
+  window.addEventListener("scroll", checkAcademicVisibility);
   
   // Initial check for visibility
   checkProjectsVisibility();
   checkCertificatesVisibility();
+  checkSkillsVisibility();
+  checkAcademicVisibility();
 
   // Handle user interaction to play the background audio
   document.addEventListener("click", function() {
@@ -253,17 +309,11 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Hover event for icons and buttons (except the back button)
-  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, #skills-button, #academic-button, back-to-top").forEach(function(element) {
+  document.querySelectorAll(".social-icons img, #contact-button, #projects-button, #certifications-button, #skills-button, #academic-button").forEach(function(element) {
     element.addEventListener("mouseover", function() {
       playChoose();
     });
   });
-
-  if (backToTopButton) {
-    backToTopButton.addEventListener("mouseover", function() {
-      playChoose();
-    });
-  }
 
   // Add sound effects to project cards
   document.querySelectorAll(".project-card").forEach(function(card) {
@@ -296,6 +346,54 @@ document.addEventListener("DOMContentLoaded", function() {
     
     card.addEventListener("mouseleave", function() {
       // Reset the flag when mouse leaves the card
+      hoverSoundPlayed = false;
+    });
+  });
+
+  // Add sound effects to academic paper cards
+  document.querySelectorAll(".academic-paper-card").forEach(function(card) {
+    let hoverSoundPlayed = false;
+    
+    card.addEventListener("mouseenter", function() {
+      if (!hoverSoundPlayed) {
+        playChoose();
+        hoverSoundPlayed = true;
+      }
+    });
+    
+    card.addEventListener("mouseleave", function() {
+      hoverSoundPlayed = false;
+    });
+  });
+
+  // Add sound effects to skill items
+  document.querySelectorAll(".skill-item").forEach(function(item) {
+    let hoverSoundPlayed = false;
+    
+    item.addEventListener("mouseenter", function() {
+      if (!hoverSoundPlayed) {
+        playChoose();
+        hoverSoundPlayed = true;
+      }
+    });
+    
+    item.addEventListener("mouseleave", function() {
+      hoverSoundPlayed = false;
+    });
+  });
+
+  // Add sound effects to specialization items
+  document.querySelectorAll(".specialization-item").forEach(function(item) {
+    let hoverSoundPlayed = false;
+    
+    item.addEventListener("mouseenter", function() {
+      if (!hoverSoundPlayed) {
+        playChoose();
+        hoverSoundPlayed = true;
+      }
+    });
+    
+    item.addEventListener("mouseleave", function() {
       hoverSoundPlayed = false;
     });
   });
@@ -378,7 +476,24 @@ document.addEventListener("DOMContentLoaded", function() {
   if (skillsButton) {
     skillsButton.addEventListener("click", function(e) {
       e.preventDefault();
+      
+      // Prepare the animation for skills section
+      if (skillsSection) {
+        skillsSection.style.opacity = "0";
+        skillsSection.style.transform = "translateY(50px)";
+      }
+      
+      // Smooth scroll to the skills section
       skillsSection.scrollIntoView({ behavior: "smooth" });
+      
+      // Animate in the skills section after a short delay
+      setTimeout(function() {
+        if (skillsSection) {
+          skillsSection.style.opacity = "1";
+          skillsSection.style.transform = "translateY(0)";
+        }
+      }, 300);
+      
       playClick();
     });
   }
@@ -387,22 +502,29 @@ document.addEventListener("DOMContentLoaded", function() {
   if (academicButton) {
     academicButton.addEventListener("click", function(e) {
       e.preventDefault();
+      
+      // Prepare the animation for academic section
+      if (academicSection) {
+        academicSection.style.opacity = "0";
+        academicSection.style.transform = "translateY(50px)";
+      }
+      
+      // Smooth scroll to the academic section
       academicSection.scrollIntoView({ behavior: "smooth" });
+      
+      // Animate in the academic section after a short delay
+      setTimeout(function() {
+        if (academicSection) {
+          academicSection.style.opacity = "1";
+          academicSection.style.transform = "translateY(0)";
+        }
+      }, 300);
+      
       playClick();
     });
   }
 
   // Back to top button functionality
-  if (backToTopButton) {
-    backToTopButton.addEventListener("click", function() {
-      playClick(); // Play click sound effect
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  }
-
   if (backToTopCertButton) {
     backToTopCertButton.addEventListener("click", function() {
       playClick(); // Play click sound effect
