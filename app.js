@@ -90,15 +90,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // Handle click event on the close button
   closeButton.addEventListener("click", function() {
     // Animate the contact panel to slide down and hide
-    contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease";
     contactPanel.style.opacity = "0";
-    contactPanel.style.transform = "translateY(100%)";
+    contactPanel.style.transform = "translate(-50%, -50%) translateY(100%)";
 
     // After the animation completes, reset the styles of the contact panel and show the center panel
     setTimeout(function() {
       contactPanel.style.visibility = "hidden";
-      contactPanel.style.opacity = "1";
-      contactPanel.style.transform = "translateY(0)";
+      contactPanel.classList.remove("show");
       centerPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
       centerPanel.style.opacity = "1";
       centerPanel.style.transform = "translateY(0)";
@@ -113,23 +112,21 @@ document.addEventListener("DOMContentLoaded", function() {
     if (contactPanelOpen) {
       if (contactPanel.style.visibility === "hidden") {
         // Animate the contact panel to slide up and show
-        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease";
         contactPanel.style.opacity = "1";
-        contactPanel.style.transform = "translateY(0)";
+        contactPanel.style.transform = "translate(-50%, -50%) translateY(0)";
         contactPanel.style.visibility = "visible";
       }
     } else {
       if (contactPanel.style.visibility === "visible") {
         // Animate the contact panel to slide down and hide
-        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        contactPanel.style.transition = "opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease";
         contactPanel.style.opacity = "0";
-        contactPanel.style.transform = "translateY(100%)";
+        contactPanel.style.transform = "translate(-50%, -50%) translateY(100%)";
 
         // After the animation completes, reset the styles of the contact panel
         setTimeout(function() {
           contactPanel.style.visibility = "hidden";
-          contactPanel.style.opacity = "1";
-          contactPanel.style.transform = "translateY(0)";
         }, 500);
       }
     }
