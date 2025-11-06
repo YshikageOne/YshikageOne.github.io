@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const skillsSection = document.getElementById("skills-section");
   const academicSection = document.getElementById("academic-section");
   const backToTopCertButton = document.getElementById("back-to-top-cert");
+  const musicToggle = document.getElementById("music-toggle");
+  const musicIcon = document.getElementById("music-icon");
 
   const backgroundAudio = document.querySelector("#background-audio");
   const click = document.getElementById("clicksfx");
@@ -29,6 +31,39 @@ document.addEventListener("DOMContentLoaded", function() {
   back.volume = 0.15;
   windowopen.volume = 0.15;
   windowclose.volume = 0.15;
+
+  // Music toggle state
+  let isMusicPlaying = false;
+  
+  // Set initial music toggle state
+  if (musicToggle) {
+    musicToggle.classList.add('muted');
+  }
+  
+  // Music toggle functionality
+  if (musicToggle) {
+    musicToggle.addEventListener("click", function() {
+      if (isMusicPlaying) {
+        backgroundAudio.pause();
+        musicToggle.classList.add('muted');
+        musicToggle.setAttribute('title', 'Play Music');
+        isMusicPlaying = false;
+      } else {
+        backgroundAudio.play().catch(function(error) {
+          console.log("Audio play failed:", error);
+        });
+        musicToggle.classList.remove('muted');
+        musicToggle.setAttribute('title', 'Pause Music');
+        isMusicPlaying = true;
+      }
+      playClick();
+    });
+    
+    // Add hover sound
+    musicToggle.addEventListener("mouseenter", function() {
+      playChoose();
+    });
+  }
 
   // Set initial styles for the center panel
   centerPanel.style.opacity = "0";
@@ -267,11 +302,21 @@ document.addEventListener("DOMContentLoaded", function() {
   checkSkillsVisibility();
   checkAcademicVisibility();
 
-  // Handle user interaction to play the background audio
-  document.addEventListener("click", function() {
-    backgroundAudio.play().catch(function(error) {
-      console.log(error);
-    });
+  // Handle user interaction to play the background audio (first click only)
+  let firstInteraction = true;
+  document.addEventListener("click", function(e) {
+    if (firstInteraction && !e.target.closest('#music-toggle')) {
+      backgroundAudio.play().catch(function(error) {
+        console.log("Audio autoplay failed:", error);
+      }).then(function() {
+        isMusicPlaying = true;
+        if (musicToggle) {
+          musicToggle.classList.remove('muted');
+          musicToggle.setAttribute('title', 'Pause Music');
+        }
+      });
+      firstInteraction = false;
+    }
   });
 
   // Function that plays the sound effects 

@@ -1,12 +1,46 @@
-body, html {
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+body {
   margin: 0;
   padding: 0;
   font-family: "Cinzel", serif; 
   color: #d0c8b0;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
+  overflow: visible;
+  max-width: 100vw;
   width: 100%;
+  min-height: 100%;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: rgba(20, 16, 12, 0.8);
+  border-left: 1px solid #8e764b;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(142, 118, 75, 0.6);
+  border-radius: 0;
+  border: 1px solid #8e764b;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 118, 75, 0.9);
 }
 
 body {
@@ -33,6 +67,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   align-items: center;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .center-panel {
@@ -177,6 +213,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   left: 50%;
   max-width: 600px;
   width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
   background-color: rgba(30, 25, 20, 0.9);
   padding: 25px;
   text-align: center;
@@ -188,6 +226,23 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(142, 118, 75, 0.3);
   transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
   transform: translate(-50%, -50%) translateY(100%);
+}
+
+.contact-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contact-panel::-webkit-scrollbar-track {
+  background: rgba(20, 16, 12, 0.5);
+}
+
+.contact-panel::-webkit-scrollbar-thumb {
+  background: rgba(142, 118, 75, 0.5);
+  border-radius: 0;
+}
+
+.contact-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 118, 75, 0.8);
 }
 
 .contact-panel.show {
@@ -407,7 +462,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   padding: 60px 0;
   min-height: 100vh;
   width: 100%;
-  max-width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 #projects-section {
@@ -419,6 +475,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   margin: 0 auto;
   padding: 20px;
   width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .projects-section {
@@ -500,6 +558,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
   margin-bottom: 40px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .project-card {
@@ -816,6 +876,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 25px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .skill-item {
@@ -854,6 +916,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .specialization-item {
@@ -980,6 +1044,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .highlight-item {
@@ -1035,6 +1101,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .academic-paper-card {
@@ -1209,6 +1277,8 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-bottom: 40px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .certificate-card {
@@ -1451,6 +1521,22 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
 
 /* Small Mobile Devices (395px and below) */
 @media screen and (max-width: 450px) {
+  /* Music Toggle for small screens */
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .music-icon {
+    font-size: 18px;
+  }
+  
+  .music-toggle.muted .music-icon::before {
+    font-size: 18px;
+  }
+
   /* Home Section Adjustments */
   .center-panel {
     max-width: 95%;
@@ -1864,23 +1950,88 @@ img:not(.profile-picture):not(.contact-icon):not(.logo) {
   }
 }
 
+/* Music Toggle Button */
+.music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(30, 25, 20, 0.9);
+  border: 2px solid #8e764b;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(142, 118, 75, 0.2);
+  padding: 0;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(142, 118, 75, 0.5), inset 0 0 15px rgba(142, 118, 75, 0.3);
+  border-color: #d7b963;
+}
+
+.music-icon {
+  font-size: 24px;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: inline-block;
+}
+
+.music-toggle.muted .music-icon {
+  opacity: 0.4;
+  font-size: 0;
+}
+
+.music-toggle.muted .music-icon::before {
+  content: '🔇';
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .music-toggle {
+    width: 45px;
+    height: 45px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .music-icon {
+    font-size: 20px;
+  }
+  
+  .music-toggle.muted .music-icon::before {
+    font-size: 20px;
+  }
+}
+
 /* Prevent horizontal scrolling on all mobile devices */
 @media screen and (max-width: 1024px) {
-  body, html {
+  html {
     overflow-x: hidden !important;
-    max-width: 100vw;
-    width: 100vw;
+    max-width: 100vw !important;
+  }
+  
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
   }
   
   .page-section,
   .container {
     overflow-x: hidden;
+    max-width: 100vw;
   }
   
   .contact-panel {
     width: 90% !important;
     max-width: 90% !important;
     max-height: 85vh;
-    overflow-y: auto;
   }
 }

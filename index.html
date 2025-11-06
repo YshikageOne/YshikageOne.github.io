@@ -12,9 +12,14 @@
    <script src="app.js"></script>
 </head>
 <body>
-  <audio id="background-audio" src="sounds/background.mp3" loop autoplay>
+  <audio id="background-audio" src="sounds/background.mp3" loop>
     <p>Bro, get a better browser man that can actually support audio</p>
   </audio>
+
+  <!-- Music Control Button -->
+  <button id="music-toggle" class="music-toggle" title="Play Music">
+    <span id="music-icon" class="music-icon">🎵</span>
+  </button>
 
   <!-- Different sound effects -->
   <audio id="clicksfx" src="sounds/click.mp3"></audio>
